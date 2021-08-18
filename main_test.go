@@ -16,7 +16,7 @@ func init() {
 	srv := shortener.New()
 	shortener.RegisterLinkShortenerServer(s, srv)
 
-	l, err := net.Listen("tcp", ":8080")
+	l, err := net.Listen("tcp", ":8081")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,7 +40,7 @@ func containsForbiddenSymbol(url string) bool {
 }
 
 func TestCreate(t *testing.T) {
-	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8081", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,7 +60,7 @@ func TestCreate(t *testing.T) {
 }
 
 func TestCreateMultiplySameURL(t *testing.T) {
-	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8081", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -93,7 +93,7 @@ func TestCreateMultiplySameURL(t *testing.T) {
 }
 
 func TestCreateMultiply(t *testing.T) {
-	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8081", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -120,7 +120,7 @@ func TestCreateMultiply(t *testing.T) {
 }
 
 func TestGet(t *testing.T) {
-	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8081", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -147,7 +147,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestWrongGet(t *testing.T) {
-	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8081", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal(err)
 	}
