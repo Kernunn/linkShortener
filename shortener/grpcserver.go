@@ -1,4 +1,4 @@
-package linkShortener
+package shortener
 
 import (
 	"context"
