@@ -2,7 +2,7 @@ package main
 
 import (
 	"google.golang.org/grpc"
-	"link_shortener/pkg/linkShortener"
+	linkShortener "github.com/Kernunn/linkShortener/pkg"
 	"log"
 	"net"
 )
