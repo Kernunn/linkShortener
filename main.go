@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/Kernunn/linkShortener/linkShortener"
 	"google.golang.org/grpc"
-	linkShortener "github.com/Kernunn/linkShortener/pkg"
 	"log"
 	"net"
 )

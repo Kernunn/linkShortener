@@ -1,4 +1,4 @@
-module linkShortener
+module github.com/Kernunn/linkShortener
 
 go 1.16
 

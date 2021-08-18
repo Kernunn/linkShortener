@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package linkShortener;
 
-option go_package = "/pkg/linkShortener";
+option go_package = "/linkShortener";
 
 message ShortURL {
   string url = 1;
