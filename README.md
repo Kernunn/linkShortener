@@ -5,5 +5,5 @@
 `docker build -t linkshortener .`  
 `docker run -p 8080:8080 linkshortener`
 
-## Usgae
+## Usage
 `go run app_for_test/test.go`
