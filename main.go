@@ -4,6 +4,7 @@ import (
 	"github.com/Kernunn/linkShortener/shortener"
 	"google.golang.org/grpc"
 	"log"
+	"fmt"
 	"net"
 )
 
@@ -17,6 +18,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("api start")
 	if err := s.Serve(l); err != nil {
 		log.Fatal(err)
 	}
