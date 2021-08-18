@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package linkShortener;
+
+option go_package = "/pkg/linkShortener";
+
+message ShortURL {
+  string url = 1;
+}
+
+message LongURL {
+  string url = 1;
+}
+
+service LinkShortener {
+  rpc Create(LongURL) returns (ShortURL) {}
+  rpc Get(ShortURL) returns (LongURL) {}
+}
