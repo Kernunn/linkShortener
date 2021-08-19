@@ -25,7 +25,7 @@ type LinkShortener struct {
 	store *store.Store
 }
 
-func (sh *LinkShortener) mustEmbedUnimplementedLinkShortenerServer() { }
+func (sh *LinkShortener) mustEmbedUnimplementedLinkShortenerServer() {}
 
 func New() (*LinkShortener, error) {
 	ls := &LinkShortener{}

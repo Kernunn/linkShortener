@@ -12,7 +12,7 @@ type LinkRepository struct {
 
 func (r *LinkRepository) Create(u *model.Link) error {
 	_, err := r.store.db.Exec(
-		"INSERT INTO link " +
+		"INSERT INTO link "+
 			"VALUES ($1, $2)", u.Url, u.ShortLink)
 	if err != nil {
 		return err
