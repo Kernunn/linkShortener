@@ -17,6 +17,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer srv.Close()
 	shortener.RegisterLinkShortenerServer(s, srv)
 
 	l, err := net.Listen("tcp", ":8080")

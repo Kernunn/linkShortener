@@ -10,12 +10,8 @@ RUN mkdir /var/lib/postgresql/data
 RUN chmod 0700 /var/lib/postgresql/data
 
 RUN initdb -D /var/lib/postgresql/data
-RUN echo "host all all 0.0.0.0/0 md5" >> /var/lib/postgresql/data/pg_hba.conf
-RUN echo "listen_addresses='*'" >> /var/lib/postgresql/data/postgresql.conf
 
-RUN pg_ctl start -D /var/lib/postgresql/data
-
-### Build app ###
+### Build app ###ps
 USER root
 WORKDIR /app
 
@@ -24,16 +20,16 @@ COPY go.sum ./
 
 RUN go mod download
 
-RUN mkdir proto
-COPY proto/* ./proto/
+ADD cmd ./cmd/
+ADD internal ./internal/
+ADD proto ./proto/
+RUN go build -o /linkShortener cmd/main.go
 
-RUN mkdir shortener
-COPY internal/shortener/* ./shortener/
+ADD start.sh /
+RUN chmod +x /start.sh
 
-COPY main.go ./
-
-RUN go build -o /linkShortener
+USER postgres
 
 EXPOSE 8080
 
-CMD ["/linkShortener"]
+CMD ["/start.sh"]
