@@ -58,7 +58,7 @@ func getRandomString(length int) string {
 	sb := strings.Builder{}
 	sb.Grow(length)
 	for i := 0; i < length; i++ {
-		sb.WriteByte(alphabet[rand.Int63n(int64(length))])
+		sb.WriteByte(alphabet[rand.Int63n(int64(len(alphabet)))])
 	}
 	return sb.String()
 }

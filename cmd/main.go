@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/Kernunn/linkShortener/shortener"
 	"google.golang.org/grpc"
 	"log"
-	"fmt"
 	"net"
 )
 
