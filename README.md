@@ -1,6 +1,8 @@
 # link_shortener
 
-Creating a unique short link
+Creating a unique short link  
+Service provides API with Create and Get methods using grpc  
+To use, generate a client from the description in the proto file, or use the command below  
 
 ## Build
 
@@ -10,3 +12,8 @@ Creating a unique short link
 ## Usage
 
 `go run tests/test.go`
+
+## Tests
+
+`docker build -t tester -f tests/Dockerfile .`
+`docker run tester`
