@@ -28,7 +28,7 @@ RUN mkdir proto
 COPY proto/* ./proto/
 
 RUN mkdir shortener
-COPY shortener/* ./shortener/
+COPY internal/shortener/* ./shortener/
 
 COPY main.go ./
 

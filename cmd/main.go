@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/Kernunn/linkShortener/shortener"
+
+	//"link_shortener/internal/shortener"
+	"github.com/Kernunn/linkShortener/internal/shortener"
+
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -10,7 +13,10 @@ import (
 
 func main() {
 	s := grpc.NewServer()
-	srv := shortener.New()
+	srv, err := shortener.New()
+	if err != nil {
+		log.Fatal(err)
+	}
 	shortener.RegisterLinkShortenerServer(s, srv)
 
 	l, err := net.Listen("tcp", ":8080")

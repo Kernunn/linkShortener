@@ -2,7 +2,10 @@ package main
 
 import (
 	"context"
-	"github.com/Kernunn/linkShortener/shortener"
+
+	"link_shortener/internal/shortener"
+	//"github.com/Kernunn/linkShortener/shortener"
+
 	"google.golang.org/grpc"
 	"log"
 	"net"
