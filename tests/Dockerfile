@@ -20,11 +20,10 @@ COPY go.sum ./
 
 RUN go mod download
 
-ADD cmd ./cmd/
+ADD tests/main_test.go ./
 ADD internal ./internal/
-RUN go build -o /linkShortener cmd/main.go
 
-ADD start.sh /
+ADD tests/start.sh /
 RUN chmod +x /start.sh
 
 USER postgres

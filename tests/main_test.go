@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 
-	"link_shortener/internal/shortener"
-	//"github.com/Kernunn/linkShortener/shortener"
+	//"link_shortener/internal/shortener"
+	"github.com/Kernunn/linkShortener/internal/shortener"
 
 	"google.golang.org/grpc"
 	"log"
@@ -16,7 +16,10 @@ import (
 
 func init() {
 	s := grpc.NewServer()
-	srv := shortener.New()
+	srv, err := shortener.New()
+	if err != nil {
+		log.Fatal(err)
+	}
 	shortener.RegisterLinkShortenerServer(s, srv)
 
 	l, err := net.Listen("tcp", ":8081")
@@ -104,7 +107,7 @@ func TestCreateMultiply(t *testing.T) {
 
 	client := shortener.NewLinkShortenerClient(conn)
 	responses := make(map[string]struct{})
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < 100; i++ {
 		resp, err := client.Create(context.Background(), &shortener.LongURL{Url: strconv.Itoa(i)})
 		if err != nil {
 			log.Fatal(err)
@@ -130,15 +133,15 @@ func TestGet(t *testing.T) {
 	defer conn.Close()
 
 	client := shortener.NewLinkShortenerClient(conn)
-	responses := make([]string, 10000)
-	for i := 0; i < 10000; i++ {
+	responses := make([]string, 100)
+	for i := 0; i < 100; i++ {
 		resp, err := client.Create(context.Background(), &shortener.LongURL{Url: strconv.Itoa(i)})
 		if err != nil {
 			log.Fatal(err)
 		}
 		responses[i] = resp.GetUrl()
 	}
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < 100; i++ {
 		resp, err := client.Get(context.Background(), &shortener.ShortURL{Url: responses[i]})
 		if err != nil {
 			log.Fatal(err)
