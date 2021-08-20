@@ -15,5 +15,5 @@ To use, generate a client from the description in the proto file, or use the com
 
 ## Tests
 
-`docker build -t tester -f tests/Dockerfile .`
+`docker build -t tester -f test/Dockerfile .`
 `docker run tester`
