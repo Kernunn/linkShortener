@@ -20,14 +20,14 @@ COPY go.sum ./
 
 RUN go mod download
 
-ADD tests/main_test.go ./
+ADD test/main_test.go ./
 ADD internal ./internal/
 
-ADD tests/start.sh /
-RUN chmod +x /start.sh
+ADD scripts/tests.sh /
+RUN chmod +x /tests.sh
 
 USER postgres
 
 EXPOSE 8080
 
-CMD ["/start.sh"]
+CMD ["/tests.sh"]

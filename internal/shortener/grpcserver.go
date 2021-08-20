@@ -3,12 +3,8 @@ package shortener
 import (
 	"context"
 	"fmt"
-	//"link_shortener/internal/model"
 	"github.com/Kernunn/linkShortener/internal/model"
-
-	//"link_shortener/internal/store"
 	"github.com/Kernunn/linkShortener/internal/store"
-
 	"math/rand"
 	"strings"
 	"time"

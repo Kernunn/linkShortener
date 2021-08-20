@@ -24,7 +24,7 @@ ADD cmd ./cmd/
 ADD internal ./internal/
 RUN go build -o /linkShortener cmd/main.go
 
-ADD start.sh /
+ADD scripts/start.sh /
 RUN chmod +x /start.sh
 
 USER postgres

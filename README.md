@@ -11,9 +11,9 @@ To use, generate a client from the description in the proto file, or use the com
 
 ## Usage
 
-`go run tests/test.go`
+`go run test/test.go`
 
 ## Tests
 
-`docker build -t tester -f tests/Dockerfile .`
+`docker build -t tester -f test/Dockerfile .`
 `docker run tester`

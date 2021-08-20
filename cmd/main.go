@@ -2,10 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	//"link_shortener/internal/shortener"
 	"github.com/Kernunn/linkShortener/internal/shortener"
-
 	"google.golang.org/grpc"
 	"log"
 	"net"

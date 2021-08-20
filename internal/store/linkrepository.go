@@ -2,7 +2,6 @@ package store
 
 import (
 	"database/sql"
-	//"link_shortener/internal/model"
 	"github.com/Kernunn/linkShortener/internal/model"
 )
 
